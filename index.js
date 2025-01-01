@@ -6,6 +6,9 @@ const staticRoute = require('./routes/staticRouter');
 const userRouter = require('./routes/user');
 const cookieParser = require('cookie-parser')
 const { restrictLogin } = require('./middleware/auth')
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
@@ -15,9 +18,8 @@ app.use(express.urlencoded({ extended: false }))
 app.set("view engine", "ejs")
 app.set("views", path.resolve("./views"))
 
-const DB = 'mongodb+srv://swaraj2005:Swaraj%40123@cluster0.gg4vp.mongodb.net/TestUrl?retryWrites=true&w=majority';
+const DB = process.env.MONGO_URL;
 
-// mongoose.connect('mongodb://localhost:27017/TestUrl')
 mongoose.connect(DB)
     .then(() => {
         console.log("Connected to MongoDB");

@@ -20,17 +20,17 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd .
-          docker push ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd  
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest
 
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
-            sudo docker stop url-shortener-ci-cd || true
-            sudo docker rm url-shortener-ci-cd || true
-            sudo docker run -d --name url-shortener-ci-cd -p 4000:4000 --restart always ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
+      # - name: Deploy to EC2
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SSH_HOST }}
+      #     username: ${{ secrets.SSH_USER }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     script: |
+      #       sudo docker pull ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest
+      #       sudo docker stop url-shortener || true
+      #       sudo docker rm url-shortener || true
+      #       sudo docker run -d --name url-shortener -p 4000:4000 --restart always ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest

@@ -33,4 +33,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
             docker stop url-shortener || true
             docker rm url-shortener || true
-            docker run -d --name url-shortener -p 80:80 ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
+            docker run -d --name url-shortener -p 4000:4000 ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd

@@ -19,7 +19,7 @@ app.set("view engine", "ejs")
 app.set("views", path.resolve("./views"))
 
 const DB = process.env.MONGO_URL;
-
+//mongo connect
 mongoose.connect(DB)
     .then(() => {
         console.log("Connected to MongoDB");

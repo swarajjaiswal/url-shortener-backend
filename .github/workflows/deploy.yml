@@ -30,7 +30,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
-            docker stop url-shortener || true
-            docker rm url-shortener || true
-            docker run -d --name url-shortener -p 4000:4000 ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd
+            sudo docker stop url-shortener || true
+            sudo docker rm url-shortener || true
+            sudo docker run -d --name url-shortener -p 4000:4000 ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd

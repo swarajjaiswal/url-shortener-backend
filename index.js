@@ -29,10 +29,10 @@ mongoose.connect(DB)
     });
 
 app.use('/url', restrictLogin, urlRouter);
-// app.use('/', staticRoute)
-app.get('/', (req, res) => {
-    res.send('Home Page');
-});
+app.use('/', staticRoute)
+// app.get('/', (req, res) => {
+//     res.send('Home Page');
+// });
 app.use('/user', userRouter);
 
 app.get('/userpage', (req, res) => {

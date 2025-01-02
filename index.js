@@ -33,7 +33,7 @@ app.use('/', staticRoute)
 app.use('/user', userRouter);
 
 app.get('/userpage', (req, res) => {
-    res.send('User Page available');
+    res.send('User Page availabg');
 })
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

@@ -32,7 +32,6 @@ app.use('/url', restrictLogin, urlRouter);
 app.use('/', staticRoute)
 app.use('/user', userRouter);
 
-const PORT = 4000;
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server Created");
 });

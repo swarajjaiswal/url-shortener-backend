@@ -35,7 +35,7 @@ app.use('/user', userRouter);
 app.get('/userpage', (req, res) => {
     res.send('User Page available');
 })
-
-app.listen(process.env.PORT, () => {
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
     console.log("Server Created");
 });

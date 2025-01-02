@@ -32,6 +32,10 @@ app.use('/url', restrictLogin, urlRouter);
 app.use('/', staticRoute)
 app.use('/user', userRouter);
 
+app.get('/userpage', (req, res) => {
+    res.send('User Page');
+})
+
 app.listen(process.env.PORT, () => {
     console.log("Server Created");
 });

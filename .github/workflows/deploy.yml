@@ -20,8 +20,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/url-shortener .
-          docker push ${{ secrets.DOCKER_USERNAME }}/url-shortener  
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd .
+          docker push ${{ secrets.DOCKER_USERNAME }}/url-shortener-ci-cd  
 
       # - name: Deploy to EC2
       #   uses: appleboy/ssh-action@master
